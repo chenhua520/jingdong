@@ -274,16 +274,14 @@
      list.addEventListener('touchstart', function (e) {
 		console.log(e.touches[0])
            sTop = e.touches[0].pageY - startOffsetTop;
-		
        });
        list.addEventListener('touchmove', function (e) {
-           // 只有当列表处于顶部的时候下拉刷新才有用
 		   console.log(e.touches[0])
 		   var scrollTop = document.documentElement.scrollTop||document.body.scrollTop;
 		   var clicent=document.documentElement.clientHeight;
 		   var juan=scrollTop+clicent;
 		    var zheight=jd_container.scrollHeight
-        //    mTop = e.touches[0].pageY - startOffsetTop;
+		topItem.style.display="block"
 			if(juan>= zheight){
 				mTop = e.touches[0].pageY
 				let mOffsetTop = sTop-mTop+"px"
@@ -316,30 +314,17 @@
                }, 200)
            } else {
 			topItem.style.paddingBottom = 0+ 'px';
+			topItem.style.display="none"
            }
        });
 	   function resize() {
 		jd_container.style.display="none";
 		cang.style.display="block";
-
-    //    let time = setInterval(function () {
-    //        if (list.offsetTop <= startOffsetTop) {
-    //            clearInterval(time);
-    //            topItem.innerHTML = '下拉加载';
-    //        } else {
-    //            list.style.top = list.offsetTop - 1 + 'px';
-    //            topItem.innerHTML = '加载完成';
-    //        }
-    //    }, 5)
    }
   
    };
    
-//    window.onscroll = function(){
-// 	var scrollTop = document.documentElement.scrollTop||document.body.scrollTop;
-// console.log(scrollTop)
-// console.log(document.documentElement.clientHeight) 
-//    }
+
 </script>
 </body>
 </html>

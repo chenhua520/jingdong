@@ -284,29 +284,32 @@
 		
        });
        list.addEventListener('touchmove', function (e) {
-		
-		   var scrollTop = document.documentElement.scrollTop||document.body.scrollTop;
+	   var scrollTop = document.documentElement.scrollTop||document.body.scrollTop;
 		   var clicent=document.documentElement.clientHeight;
 		   var juan=scrollTop+clicent;
 		    var zheight=jd_container.scrollHeight
-		topItem.style.display="block"
+		     topItem.style.display="block"
 			if(juan>= zheight){
 				mTop = e.touches[0].pageY
 				let mOffsetTop = sTop-mTop+"px"
-				if (mTop < sTop) {
+				setTimeout(function(){	if (mTop < sTop) {
 			if(sTop-mTop>30){
 				topItem.innerHTML="再拉进入商品详情"
-				
+			
 			}else{
 				topItem.innerHTML="到底了"
 			}
 			if ((sTop-mTop) <= maxTop) {
 				topItem.style.paddingBottom = mOffsetTop;
+				return;
+			
 			
 			} else {
 						topItem.style.paddingBottom = maxTop + 'px'
+						return;
 					}
-				}
+				}},100)
+			
 			} 
 	
        });

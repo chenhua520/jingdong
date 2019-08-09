@@ -275,7 +275,7 @@
    // let isRefresh = false;
 //    let startOffsetTop = 40;// 距离顶部的距离，tab的高度
    let wScrollTop; // wrapper 节点是否滚动
-   let maxTop = 60; // 最多下拉100px
+   let maxTop = 100; // 最多下拉100px
    let minTop = 20; // 最小下拉20px,小于20px时不处理
    window.onload = function(){
      list.addEventListener('touchstart', function (e) {
@@ -294,7 +294,7 @@
 				mTop = e.touches[0].pageY
 				let mOffsetTop = sTop-mTop+"px"
 				if (mTop < sTop) {
-			if(sTop-mTop>20){
+			if(sTop-mTop>30){
 				topItem.innerHTML="再拉进入商品详情"
 				
 			}else{

@@ -10,6 +10,7 @@
 	<!-- 导入css -->
 	<link rel="stylesheet" type="text/css" href="css/base.css">
 	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
 	<style>
 	.xiala{
 		text-align: center;
@@ -22,6 +23,7 @@
 		display: none;
 	}
 	</style>
+	
 </head>
 <body>
 		<!-- 最外层的容器盒子 -->
@@ -266,17 +268,18 @@
    let mTop; // touchmove时距离选项卡底部的位置
    let eTop; // 记录touchend时的位置
    // let isRefresh = false;
-   let startOffsetTop = 40;// 距离顶部的距离，tab的高度
+//    let startOffsetTop = 40;// 距离顶部的距离，tab的高度
    let wScrollTop; // wrapper 节点是否滚动
    let maxTop = 100; // 最多下拉100px
    let minTop = 20; // 最小下拉20px,小于20px时不处理
    window.onload = function(){
      list.addEventListener('touchstart', function (e) {
-		console.log(e.touches[0])
-           sTop = e.touches[0].pageY - startOffsetTop;
+	  
+           sTop = e.touches[0].pageY
+		
        });
        list.addEventListener('touchmove', function (e) {
-		   console.log(e.touches[0])
+		
 		   var scrollTop = document.documentElement.scrollTop||document.body.scrollTop;
 		   var clicent=document.documentElement.clientHeight;
 		   var juan=scrollTop+clicent;
@@ -298,8 +301,6 @@
 						topItem.style.paddingBottom = maxTop + 'px'
 					}
 				}
-			
-		
 			}
 		   
        });
@@ -310,7 +311,7 @@
                setTimeout(function () {
 				// topItem.style.paddingBottom = 0+ 'px';
 				topItem.style.display="none"
-                   resize()
+                   resize();
                }, 200)
            } else {
 			topItem.style.paddingBottom = 0+ 'px';
@@ -320,6 +321,9 @@
 	   function resize() {
 		jd_container.style.display="none";
 		cang.style.display="block";
+		// var scrollTop=window.pageYOffset||document.documentElement.scrollTop||document.body.scrollTop||document.documentElement.scrollTop;
+		window.pageYOffset=document.documentElement.scrollTop=document.body.scrollTop=document.documentElement.scrollTop=0
+	// cang.scrollTop=0;
    }
   
    };

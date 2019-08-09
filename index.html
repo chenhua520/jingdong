@@ -292,7 +292,7 @@
 			if(juan>= zheight){
 				mTop = e.touches[0].pageY
 				let mOffsetTop = sTop-mTop+"px"
-				setTimeout(function(){	if (mTop < sTop) {
+				if (mTop < sTop) {
 			if(sTop-mTop>30){
 				topItem.innerHTML="再拉进入商品详情"
 			
@@ -308,7 +308,7 @@
 						topItem.style.paddingBottom = maxTop + 'px'
 						return;
 					}
-				}},100)
+				}
 			
 			} 
 	
